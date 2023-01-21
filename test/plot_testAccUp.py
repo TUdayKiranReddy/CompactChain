@@ -3,28 +3,26 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-os.system("make")
+# os.system("make")
+os.chdir(r"/home/solomon/Projects/Blockchain/Scripts/tremel_swarropa_modified/test")
+max_trials = 1
 
-max_trials = 10
-length = 5
-step = 200
-
-u_t_mc = np.zeros(length)
-u_t_pr = np.zeros(length)
-v_t_mc = np.zeros(length)
-v_t_pr = np.zeros(length)
-N = np.arange(length)
-N = (N+1)*step
+u_t_mc = np.zeros(10)
+u_t_pr = np.zeros(10)
+v_t_mc = np.zeros(10)
+v_t_pr = np.zeros(10)
+N = np.arange(10)
+N = (N+1)*100
 
 for idx in range(max_trials):
-	os.system("./testAccUp " + str(idx))
+	# os.system("./testAccUp " + str(idx))
 	accUp = pd.read_csv("testAccUp_result"+str(idx)+".csv") 
 	accVer = pd.read_csv("testAccVer_result"+str(idx)+".csv")
 	u_t_mc += accUp["Minichain"].to_numpy()
 	u_t_pr += accUp["Proposed"].to_numpy()
 	v_t_mc += accVer["Minichain"].to_numpy()
 	v_t_pr += accVer["Proposed"].to_numpy()
-
+os.chdir(r"/home/solomon/Projects/Blockchain/Scripts/tremel_swarropa_modified/Results")
 u_t_mc /= max_trials
 u_t_pr /= max_trials
 v_t_mc /= max_trials
@@ -53,8 +51,8 @@ plt.savefig("testAccUp.eps")
 
 plt.figure()
 plt.title("Verification")
-plt.plot(N, v_t_mc, "-*", label="MiniChain")
-plt.plot(N, v_t_pr, "-^", label="Proposed")
+plt.plot(N, v_t_mc, "-^", label="MiniChain")
+plt.plot(N, v_t_pr, "-*", label="Proposed")
 plt.grid()
 plt.legend()
 plt.xlabel("Number of transactions")
