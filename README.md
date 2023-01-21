@@ -7,24 +7,21 @@ In this work, we propose a stateless blockchain called CompactChain, which compa
 2. Untar and navigate to the directory
 2. Remove '-Wl' in 62 line of Makefile.subdirs
 3. Configure and make library
-
+```
     ./configure --prefix=/usr
     make
     make test
     make install
-
+```
  * Install CRYPTO++
-
-    sudo apt-get install libcrypto++-dev
+    `sudo apt-get install libcrypto++-dev`
 
 ## Running tests
 * Build the executables
-
-    make
+    `make`
 * First generate randomBigInts using the executable in test/
 * Navigate to test/ directory and execute TEST
-
-    ./{}.out
+    `./{}.out`
 
 |         TEST         	|                                                Description                                               	|
 |:--------------------:	|:--------------------------------------------------------------------------------------------------------:	|
