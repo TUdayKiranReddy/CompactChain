@@ -10,7 +10,6 @@ Please cite our work if you find our repo useful in your work :)
   publisher = {arXiv},
   year = {2022}
 }
-
 ```
 
 ## Installation
