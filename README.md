@@ -21,8 +21,21 @@ In this work, we propose a stateless blockchain called CompactChain, which compa
 * Build the executables
 
     make
-
+* First generate randomBigInts using the executable in test/
 * Navigate to test/ directory and execute TEST
 
     ./{}.out
 
+|         TEST         	|                                                Description                                               	|
+|:--------------------:	|:--------------------------------------------------------------------------------------------------------:	|
+|       textcctco      	|                                       CompactChain Tx Verification                                       	|
+|    generate_random   	| Generate random keys for RSA and hashes for SHA256<br>Usage: ./generate_random.out {rsa/sha} {#Elements} 	|
+|       testAccUp      	|                        Performs Accumulator update for both CompactChain and Boneh                       	|
+|     textbonehTXO     	|                                          Boneh's Tx Verification                                         	|
+|       textmctco      	|                                         MiniChain Tx Verification                                        	|
+|      testMerkle      	|                                    Testing Merkle tree implementation                                    	|
+|      testMMRTree     	|                                      Testing MMR tree implementation                                     	|
+|     testproposed     	|                      Performs Accumulator update and verification for CompactChain                       	|
+|     updatetxproof    	|                           Tx proof updating in both CompactChain and MiniChain                           	|
+|       testWitUp      	|                     Comparision of Witness update for CompactChain, MiniChain, Boneh                     	|
+| update_witness_boneh 	|                                         Witness update for Boneh                                         	|
